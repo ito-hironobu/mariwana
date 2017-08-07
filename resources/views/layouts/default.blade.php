@@ -7,6 +7,7 @@
 </head>
 <body>
   <div class="container">
+    <h1>家庭栽培ゲーム 〜マリワナくん〜</h1>
     @yield('content')
   </div>
 </body>
