@@ -2,6 +2,7 @@
 
 @section('content')
 <h2>新規登録</h2>
+<h2 class="error">登録済みのメールアドレスです。</h2>
 <form method="post" action="{{ url('/register_complete') }}">
   {{ csrf_field() }}
   <p>

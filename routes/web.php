@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', 'UsersController@index');
-Route::get('/login', 'UsersController@login');
-Route::get('/register', 'UsersController@register');
+Route::get ('/',                  'UsersController@index');
+Route::get ('/login',             'UsersController@login');
+Route::get ('/login_error',       'UsersController@login_error');
+Route::post('/login_complete',    'UsersController@login_complete');
+Route::get ('/register',          'UsersController@register');
+Route::get ('/register_error',    'UsersController@register_error');
+Route::post('/register_complete', 'UsersController@register_complete');
+Route::post('/game',              'UsersController@game');
+// Route::post('/', 'UsersController@');

@@ -1,8 +1,9 @@
 @extends('layouts.default')
 
 @section('content')
-<h2>新規登録</h2>
-<form method="post" action="{{ url('/register_complete') }}">
+<h2>ログイン</h2>
+<h2 class="error">メールアドレスまたはパスワードが間違っています。</h2>
+<form method="post" action="{{ url('/login_complete') }}">
   {{ csrf_field() }}
   <p>
     Email: <input type="text" name="email" placeholder="example@..." value="{{ old('email') }}">
@@ -17,7 +18,7 @@
     @endif
   </p>
   <p>
-    <input type="submit" name="register" value=" 新規登録 ">
+    <input type="submit" name="login" value="ログイン">
   </p>
 </form>
 @endsection
