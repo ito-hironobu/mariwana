@@ -15,10 +15,6 @@ class UsersController extends Controller
       return view('users.login');
     }
 
-    public function login_error() {
-      return view('users.login_error');
-    }
-
     public function login_complete(Request $request) {
       $this->validate($request, [
         'email' => 'required|email',
@@ -31,15 +27,11 @@ class UsersController extends Controller
           return view('users.login_complete')->with('email', $request->email)->with('password', $request->password);
         }
       }
-      return redirect('/login_error');
+      return redirect('/login')->with('flash_message', 'メールアドレスまたはパスワードが間違っています。');
     }
 
     public function register() {
       return view('users.register');
-    }
-
-    public function register_error() {
-      return view('users.register_error');
     }
 
     public function register_complete(Request $request) {
@@ -50,7 +42,7 @@ class UsersController extends Controller
       // 登録済みならDBに追加しない
       $f_user_exist = $this->checkUserExist($request->email); // このcheck関数を別ファイルに分割したい。ただどこにどう分割するべき？
       if($f_user_exist) {
-        return redirect('/register_error');
+        return redirect('/register')->with('flash_message', '登録済みのメールアドレスです。');
       }else{
         $userinfo = new Userinfo();
         $userinfo->email = $request->email;
